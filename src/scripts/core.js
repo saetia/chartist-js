@@ -441,7 +441,7 @@ var Chartist = {
         return recursiveConvert(value.data);
       } else if(value instanceof Array) {
         // Data is of type array so we need to recurse on the series
-        return value.map(recursiveConvert);
+        return (reverse) ? value.reverse().map(recursiveConvert) : value.map(recursiveConvert);
       } else if(Chartist.isDataHoleValue(value)) {
         // We're dealing with a hole in the data and therefore need to return undefined
         // We're also returning undefined for multi value output
